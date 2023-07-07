@@ -1023,6 +1023,24 @@ MonoBehaviour:
   prefabObj: {fileID: 2216466169737226250, guid: 37ed22e2d0a912e46acd3690e6222c0f,
     type: 3}
   price: 1
+--- !u!1 &931649594 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2216466169737226250, guid: 37ed22e2d0a912e46acd3690e6222c0f,
+    type: 3}
+  m_PrefabInstance: {fileID: 2658478082918737901}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &931649599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 931649594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2378ae5e0b59c204ca3296e92c6b54fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &972439808
 GameObject:
   m_ObjectHideFlags: 0
@@ -1496,7 +1514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73b899839decb2842968a704bc97e14c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraSpeed: 1
+  cameraSpeed: 0.7
   zoomSpeed: 30
   TargetPos: 0
   TargetZoom: 0
@@ -1571,7 +1589,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1239471355}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.405186, y: 1, z: -5}
+  m_LocalPosition: {x: 9.405186, y: 2, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2042,6 +2060,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 924864421413885990, guid: 37ed22e2d0a912e46acd3690e6222c0f,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.78431374
+      objectReference: {fileID: 0}
     - target: {fileID: 2216466169737226250, guid: 37ed22e2d0a912e46acd3690e6222c0f,
         type: 3}
       propertyPath: m_Name
@@ -2105,5 +2128,9 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2216466169737226250, guid: 37ed22e2d0a912e46acd3690e6222c0f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 931649599}
   m_SourcePrefab: {fileID: 100100000, guid: 37ed22e2d0a912e46acd3690e6222c0f, type: 3}
