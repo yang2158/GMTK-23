@@ -43,7 +43,7 @@ public class build : MonoBehaviour
             {
                 if (hover)
                 {
-                    hover.GetComponent<SpriteRenderer>().color = Color.green;
+                    
                     if (Input.GetMouseButtonUp(0))
                     {
                         hover = (GameObject)GameObject.Instantiate(itm, Camera.main.ScreenToWorldPoint(Input.mousePosition), Quaternion.identity, ally);

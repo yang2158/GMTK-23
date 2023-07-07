@@ -25,7 +25,7 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         float xAxis = Input.GetAxis("Horizontal");
-        float zoom = Input.GetAxis("Mouse ScrollWheel") + Input.GetAxis("Vertical")*0.05f; 
+        float zoom = Input.GetAxis("Mouse ScrollWheel") + Input.GetAxis("Vertical")*0.02f; 
         TargetZoom += zoom*zoomSpeed;
         TargetPos += xAxis* cameraSpeed;
         Vector3 pos = transform.position;
