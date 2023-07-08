@@ -99,6 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ep: {x: 0, y: 0, z: 0}
   distanceToGo: 20
+  damage: 5
   speed: 400
   speedMulti: 1
   waveHeight: 0.8

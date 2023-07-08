@@ -8,8 +8,11 @@ using Unity.VisualScripting;
 
 public class BasicEnemy : MonoBehaviour
 {
+    private GameObject gameManager;
+
     public Vector3 ep;
     [SerializeField] private float distanceToGo = 50;
+    [SerializeField] private float damage = 5;
     public float speed = 5;
     public float speedMulti = 1;
     float interval = 0;
@@ -22,6 +25,7 @@ public class BasicEnemy : MonoBehaviour
     void Start()
     {
         ep = new Vector3(transform.position.x + distanceToGo, transform.position.y, transform.position.z);
+        gameManager = GameObject.FindGameObjectWithTag("GameController");
     }
 
     // Update is called once per frame
@@ -34,6 +38,7 @@ public class BasicEnemy : MonoBehaviour
         if(dir.magnitude < 0.4f)
         {
             //REACH CASTLE
+            gameManager.GetComponent<CastleHealth>().TakeDamage(damage);
             GameObject.Destroy(gameObject);
         }
         dir.Normalize();
