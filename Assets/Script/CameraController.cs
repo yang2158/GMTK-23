@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class CameraController : MonoBehaviour
 {
@@ -10,8 +11,8 @@ public class CameraController : MonoBehaviour
     public float TargetZoom = 0;
     public float lerpSmooth = 0.1f;
     public float lerpSmoothZ = 0.02f;
-    public Vector2 zoomRange;
-    public Vector2 xRange;
+    public Vector2 zoomRange= new Vector2 (-60,-5);
+    public Vector2 xRange = new Vector2(-60,10);
     Camera cam = null;
     // Start is called before the first frame update
     void Start()
