@@ -36,5 +36,6 @@ public class CameraController : MonoBehaviour
         TargetZoom = Mathf.Clamp(TargetZoom, zoomRange.x, zoomRange.y);
         TargetPos = Mathf.Clamp(TargetPos, xRange.x, xRange.y);
     }
-    
+
+
 }
