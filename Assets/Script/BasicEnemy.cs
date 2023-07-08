@@ -8,7 +8,8 @@ using Unity.VisualScripting;
 
 public class BasicEnemy : MonoBehaviour
 {
-    public GameObject endPos ;
+    public Vector3 ep;
+    [SerializeField] private float distanceToGo = 50;
     public float speed = 5;
     public float speedMulti = 1;
     float interval = 0;
@@ -20,13 +21,14 @@ public class BasicEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ep = new Vector3(transform.position.x + distanceToGo, transform.position.y, transform.position.z);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        Vector3 ep = endPos.transform.position;
+
+
         ep.y = transform.position.y;
         Vector3 dir = ep - transform.position;
         if(dir.magnitude < 0.4f)
