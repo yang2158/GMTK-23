@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
 {
     public float deathJump = 200;
     public float health = 100;
+    public float worth = 10f;
     float timer = 0f;
     bool dead = false;
     [SerializeField] float deathAnimTime = 1f;
@@ -19,6 +20,7 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
+        if (dead) return;
         transform.GetComponent<Collider>().enabled = false;
         Rigidbody rb = transform.AddComponent<Rigidbody>();
         rb.AddForceAtPosition(Vector3.up * deathJump, transform.position+new Vector3(Random.Range(-6, 7), 5, Random.Range(-1,1) ));
@@ -28,6 +30,7 @@ public class Enemy : MonoBehaviour
             transform.GetChild(0).gameObject.SetActive(false);
         }
 =======
+        PlayerController.instance.gainDrop(worth);
 >>>>>>> b6befea697a43184ec4aa7a734ae319027ea4cfc
         dead = true;
     }
