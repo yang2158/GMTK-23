@@ -19,6 +19,12 @@ public class WindowManager : MonoBehaviour
 
         }
     }
+
+    public void Play()
+    {
+        SceneManager.LoadScene("Game 1");
+    }
+
     public void GameOverScreen()
     {
         gameOverWindow.SetActive(true);
