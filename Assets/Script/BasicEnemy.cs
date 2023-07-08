@@ -24,6 +24,7 @@ public class BasicEnemy : MonoBehaviour
     void Start()
     {
         gameManager = GameObject.FindGameObjectWithTag("GameController");
+        interval = Random.Range(0, waveFrequency);
     }
 
     // Update is called once per frame

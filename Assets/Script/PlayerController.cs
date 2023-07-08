@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
+using static UnityEngine.Rendering.DebugUI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -19,13 +21,14 @@ public class PlayerController : MonoBehaviour
 
     //Game Values
     public float money = 0;
-
     public float timer = float.PositiveInfinity;
 
 
     //Constant Values
     [SerializeField] private int damage=100;
+    [SerializeField] Image bulletBar;
     public TextMeshProUGUI infoPanel;
+    [SerializeField] private TextMeshProUGUI[] statBGDisplay= new TextMeshProUGUI[4];
 
     // Start is called before the first frame update
     void Start()
@@ -36,17 +39,21 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButton(0))
+        
         timer -= Time.deltaTime;
         if (timer <= 0 && auto > 0)
         {
-            timer = auto;
+            timer = 1/auto;
             shoot();
         }
         if (Input.GetMouseButtonUp(0))
             shoot();
-        
+        bulletBar.fillAmount = timer * auto;
         infoPanel.text = "Hover Over Buttons for More Info";
+        setBGIDText(1);
+        setBGIDText(2);
+        setBGIDText(3);
+        setBGIDText(4);
     }
     public void shoot()
     {
@@ -101,14 +108,37 @@ public class PlayerController : MonoBehaviour
                 }
                 return;
             case 4:
-                dropMulti += 0.1f;
-                if (dropMulti < 3)
+                auto += 0.1f;
+                if (auto < 3)
                 {
-                    dropMulti += 0.1f;
+                    auto += 0.1f;
                 }
+                timer = bulletBar.fillAmount / auto;
                 return;
         }
 
+    }
+    public void setBGIDText(int id)
+    {
+        if (id < 0 || id > 3) return;
+        float value = 0;
+
+        switch (id)
+        {
+            case 1:
+                value = piercing;
+                break;
+            case 2:
+                value = damage;
+                break;
+            case 3:
+                value = dropMulti;
+                break;
+            case 4:
+                value = auto;
+                break;
+        }
+        statBGDisplay[id - 1].text = "x"+ string.Format("{0:0.0}", value);
     }
     public void setInfoText(string text)
     {
