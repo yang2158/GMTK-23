@@ -14,6 +14,11 @@ public class CastleHealth : MonoBehaviour
         Debug.Log(health);
         health -= damage;
         healthBar.fillAmount = Mathf.Clamp(health / maxHealth, 0, 1);
+
+        if(health <= 0)
+        {
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<WindowManager>().GameOverScreen();
+        }
     }
 
 
