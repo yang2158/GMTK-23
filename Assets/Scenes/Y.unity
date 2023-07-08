@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 62726325}
   - component: {fileID: 62726324}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Coins
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5184,6 +5184,7 @@ MonoBehaviour:
   dropMulti: 1
   auto: 0
   money: 0
+  displayedMoney: 0
   timer: 0
   damage: 100
   bulletBar: {fileID: 1923784721}
@@ -5193,6 +5194,7 @@ MonoBehaviour:
   - {fileID: 1432878096}
   - {fileID: 354054564}
   - {fileID: 172496510}
+  bankDisplay: {fileID: 62726324}
 --- !u!1 &1757035736
 GameObject:
   m_ObjectHideFlags: 0

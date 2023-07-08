@@ -31,6 +31,8 @@ public class Enemy : MonoBehaviour
         }
 
         PlayerController.instance.gainDrop(worth);
+        transform.GetComponent<SpriteRenderer>().color *=0.5f;
+        transform.GetComponent<SpriteRenderer>().color += Color.red ;
         dead = true;
     }
     public void endreach()

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using static UnityEngine.Rendering.DebugUI;
+using UnityEditor.PackageManager;
 
 public class PlayerController : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour
 
     //Game Values
     public float money = 0;
+    public float displayedMoney = 0;
     public float timer = float.PositiveInfinity;
 
 
@@ -29,6 +31,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Image bulletBar;
     public TextMeshProUGUI infoPanel;
     [SerializeField] private TextMeshProUGUI[] statBGDisplay= new TextMeshProUGUI[4];
+    [SerializeField] private TextMeshProUGUI bankDisplay ;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +42,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        displayedMoney = Mathf.Lerp(money, displayedMoney, 0.5f);
+        if (bankDisplay)
+        {
+            bankDisplay.text = "Coins: " + Mathf.RoundToInt(displayedMoney);
+        }
         timer -= Time.deltaTime;
         if (timer <= 0 && auto > 0)
         {
@@ -57,18 +64,21 @@ public class PlayerController : MonoBehaviour
     }
     public void shoot()
     {
-        float truePierce = PlayerController.floatToInt(piercing);
-        for (int i = 0; i < truePierce; i++)
-        {
-            RaycastHit hitInfo = new RaycastHit();
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo))
+        int canHit = PlayerController.floatToInt(piercing);
+            RaycastHit[] hitInfo = Physics.RaycastAll(Camera.main.ScreenPointToRay(Input.mousePosition));
+            if (hitInfo!=null)
             {
-                if (hitInfo.collider.transform.GetComponent<Enemy>() != null)
+                foreach( RaycastHit hit in hitInfo)
                 {
-                    hitInfo.collider.transform.GetComponent<Enemy>().shot(damage);
+                    if (hit.collider.transform.GetComponent<Enemy>() != null && canHit>0)
+                    {
+                        canHit--;
+                        hit.collider.transform.GetComponent<Enemy>().shot(damage);
+                    }
                 }
+                
             }
-        }
+        
     }
 
     public int gainDrop(float n)
