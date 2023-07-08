@@ -6,6 +6,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float deathJump = 200;
+    private float endJump = 500;
     public float health = 100;
     public float worth = 10f;
     float timer = 0f;
@@ -25,6 +26,20 @@ public class Enemy : MonoBehaviour
         Rigidbody rb = transform.AddComponent<Rigidbody>();
         rb.AddForceAtPosition(Vector3.up * deathJump, transform.position+new Vector3(Random.Range(-6, 7), 5, Random.Range(-1,1) ));
         if(transform.childCount > 0)
+        {
+            transform.GetChild(0).gameObject.SetActive(false);
+        }
+
+        PlayerController.instance.gainDrop(worth);
+        dead = true;
+    }
+    public void endreach()
+    {
+        if (dead) return;
+        transform.GetComponent<Collider>().enabled = false;
+        Rigidbody rb = transform.AddComponent<Rigidbody>();
+        rb.AddForceAtPosition(Vector3.up * endJump*2+ Vector3.right* endJump, transform.position + new Vector3(Random.Range(-12, -6), 1, Random.Range(-1, 1)));
+        if (transform.childCount > 0)
         {
             transform.GetChild(0).gameObject.SetActive(false);
         }

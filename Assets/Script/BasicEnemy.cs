@@ -11,7 +11,6 @@ public class BasicEnemy : MonoBehaviour
     private GameObject gameManager;
 
     public Vector3 ep;
-    [SerializeField] private float distanceToGo = 50;
     [SerializeField] private float damage = 5;
     public float speed = 5;
     public float speedMulti = 1;
@@ -24,8 +23,8 @@ public class BasicEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ep = new Vector3(transform.position.x + distanceToGo, transform.position.y, transform.position.z);
         gameManager = GameObject.FindGameObjectWithTag("GameController");
+        interval = Random.Range(0, waveFrequency);
     }
 
     // Update is called once per frame
@@ -35,13 +34,16 @@ public class BasicEnemy : MonoBehaviour
 
         ep.y = transform.position.y;
         Vector3 dir = ep - transform.position;
-        if(dir.magnitude < 0.4f)
+        dir -= Vector3.forward*dir.z;
+
+        dir -= Vector3.up * dir.y;
+        if (dir.magnitude < 0.4f)
         {
             //REACH CASTLE
             if(this.GetComponent<Enemy>().IsDead() == false)
             {
                 gameManager.GetComponent<CastleHealth>().TakeDamage(damage);
-                GameObject.Destroy(gameObject);
+                transform.GetComponent<Enemy>().endreach();
             }
             
         }
