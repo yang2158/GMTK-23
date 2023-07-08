@@ -8,7 +8,8 @@ public class WaveSystem : MonoBehaviour
     [SerializeField] private GameObject enemy;
     [SerializeField] private Transform enemiesParent;
     [SerializeField] private TMP_Text waveText;
-
+    public float deathZ = 0;
+    public float rngRangeX = 10;
     [SerializeField] private int startPosX;
     [SerializeField] private int minZ;
     [SerializeField] private int maxZ;
@@ -27,10 +28,14 @@ public class WaveSystem : MonoBehaviour
         for(int i = 0; i < waveNum * slope; i++)
         {
             GameObject newEnemy = Instantiate(enemy, enemiesParent);
-            Vector3 enemyPos = new Vector3(startPosX, 1.5f, Random.Range(minZ, maxZ));
+            Vector3 enemyPos = new Vector3(startPosX + Random.Range(-rngRangeX, rngRangeX), 1.5f, Random.Range(minZ, maxZ));
            
+
+            if(enemy.GetComponent<BasicEnemy>())
+            {
+                enemy.GetComponent<BasicEnemy>().ep = enemy.GetComponent<BasicEnemy>().ep + Vector3.right * deathZ;
+            }
             newEnemy.transform.position = enemyPos;
-            newEnemy.transform.Rotate(45, 0, 0);
         }
     }
 
