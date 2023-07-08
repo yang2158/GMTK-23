@@ -17,11 +17,10 @@ public class PlayerController : MonoBehaviour
 
 
 
-
     //Game Values
     public float money = 0;
 
-
+    public float timer = float.PositiveInfinity;
 
 
     //Constant Values
@@ -37,10 +36,16 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonUp(0))
+        if(Input.GetMouseButton(0))
+        timer -= Time.deltaTime;
+        if (timer <= 0 && auto > 0)
         {
+            timer = auto;
             shoot();
         }
+        if (Input.GetMouseButtonUp(0))
+            shoot();
+        
         infoPanel.text = "Hover Over Buttons for More Info";
     }
     public void shoot()

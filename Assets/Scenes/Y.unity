@@ -4395,7 +4395,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eded79544f0704152be4afb65a7b9707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 1850533199419148797, guid: fa293b61f640c4907b759e9b0b674037, type: 3}
+  enemies:
+  - {fileID: 1850533199419148797, guid: fa293b61f640c4907b759e9b0b674037, type: 3}
+  - {fileID: 6512220481732533457, guid: fdd3a28f4697d4e8396d71eead957efc, type: 3}
   enemiesParent: {fileID: 86689698}
   waveText: {fileID: 821705997}
   deathZ: 0
@@ -4404,7 +4406,7 @@ MonoBehaviour:
   minZ: 4
   maxZ: -4
   slope: 5
-  waveNum: 0
+  waveNum: 1
 --- !u!114 &1717977226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4437,6 +4439,7 @@ MonoBehaviour:
   dropMulti: 1
   auto: 0
   money: 0
+  timer: 0
   damage: 100
   infoPanel: {fileID: 449970889}
 --- !u!1 &1757035736

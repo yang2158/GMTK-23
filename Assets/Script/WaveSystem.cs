@@ -27,9 +27,10 @@ public class WaveSystem : MonoBehaviour
         waveText.text = "Wave " + waveNum;
         for(int i = 0; i < waveNum * slope; i++)
         {
+
             GameObject enemy = enemies[Random.Range(0, enemies.Length)];
             GameObject newEnemy = Instantiate(enemy, enemiesParent);
-            Vector3 enemyPos = new Vector3(startPosX + Random.Range(-rngRangeX, rngRangeX), 1.5f, Random.Range(minZ, maxZ));
+            Vector3 enemyPos = new Vector3(startPosX + Random.Range(-rngRangeX, rngRangeX), newEnemy.transform.lossyScale.y/2f, Random.Range(minZ, maxZ));
            
 
             if(enemy.GetComponent<BasicEnemy>())

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1675572735382677792}
   - component: {fileID: 5496071817345156508}
   m_Layer: 0
-  m_Name: Knight
+  m_Name: Rookie Knight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,11 +30,11 @@ Transform:
   m_GameObject: {fileID: 6512220481732533457}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3.5, z: 3}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4220014429361087906
 SpriteRenderer:
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -1570998693, guid: 93c464faa7ae2448ea94ed384525a6cb, type: 3}
-  m_Color: {r: 0.46226418, g: 0.60686487, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathJump: 200
-  health: 500
+  health: 200
   worth: 10
   deathAnimTime: 2
 --- !u!136 &5496071817345156508

@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 4438157656462364334}
   - component: {fileID: 6673442495293254780}
   m_Layer: 0
-  m_Name: Assasin
+  m_Name: Dark Assasin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -197,7 +197,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c1f85fb6bce08b84e8676d4f2dc4f95f, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.99531823, g: 1, b: 0.3066038, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -222,11 +222,11 @@ MonoBehaviour:
   ep: {x: 0, y: 0, z: 0}
   distanceToGo: 20
   damage: 5
-  speed: 400
+  speed: 600
   speedMulti: 1
-  waveHeight: 0.8
-  waveIntensity: 0.2
-  waveFrequency: 400
+  waveHeight: 0.5
+  waveIntensity: 0.5
+  waveFrequency: 30
   trueSpeed: 0
   randomSpeedStat: 1
 --- !u!136 &5839491755613136580
