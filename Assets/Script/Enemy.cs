@@ -23,6 +23,10 @@ public class Enemy : MonoBehaviour
         transform.GetComponent<Collider>().enabled = false;
         Rigidbody rb = transform.AddComponent<Rigidbody>();
         rb.AddForceAtPosition(Vector3.up * deathJump, transform.position+new Vector3(Random.Range(-6, 7), 5, Random.Range(-1,1) ));
+        if(transform.childCount > 0)
+        {
+            transform.GetChild(0).gameObject.SetActive(false);
+        }
         dead = true;
     }
     private void Update()

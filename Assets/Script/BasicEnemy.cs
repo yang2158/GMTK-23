@@ -11,7 +11,7 @@ public class BasicEnemy : MonoBehaviour
     private GameObject gameManager;
 
     public Vector3 ep;
-    [SerializeField] private float distanceToGo = 90;
+    [SerializeField] private float distanceToGo = 50;
     [SerializeField] private float damage = 5;
     public float speed = 5;
     public float speedMulti = 1;
@@ -24,21 +24,14 @@ public class BasicEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ep = new Vector3(0, transform.position.y, transform.position.z);
+        ep = new Vector3(transform.position.x + distanceToGo, transform.position.y, transform.position.z);
         gameManager = GameObject.FindGameObjectWithTag("GameController");
-        randomSpeedStat = Random.Range(0.8f, 1.2f);
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        // Average of 0.5 change in random speed stat per second
-        if(Random.Range(0, 1) < 0.5f * Time.deltaTime)
-        {
-            randomSpeedStat = Random.Range(0.8f, 1.2f);
-
-        }
 
         ep.y = transform.position.y;
         Vector3 dir = ep - transform.position;
@@ -57,7 +50,7 @@ public class BasicEnemy : MonoBehaviour
         float wave = waveIntensity * Mathf.Cos(waveFrequency/((Mathf.PI * 2)  ) * interval) + waveIntensity + waveHeight;
 
         trueSpeed = speed * speedMulti * wave;
-        transform.position += dir * trueSpeed * Time.deltaTime * randomSpeedStat / 100f;
+        transform.position += dir * trueSpeed * Time.deltaTime * Random.Range(0.8f, 1.2f) / 100f;
 
     }
 }
