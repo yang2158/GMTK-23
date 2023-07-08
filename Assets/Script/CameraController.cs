@@ -25,12 +25,15 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         float xAxis = Input.GetAxis("Horizontal");
-        float zoom = Input.GetAxis("Mouse ScrollWheel") + Input.GetAxis("Vertical")*0.02f; 
-        TargetZoom += zoom*zoomSpeed;
-        TargetPos += xAxis* cameraSpeed;
+        float zoom = Input.GetAxis("Mouse ScrollWheel") + Input.GetAxis("Vertical") * 0.02f;
+        TargetZoom += zoom * zoomSpeed;
+        TargetPos += xAxis * cameraSpeed;
         Vector3 pos = transform.position;
-        pos.x = Mathf.Lerp(transform.position.x, TargetPos, lerpSmooth); 
+        pos.x = Mathf.Lerp(transform.position.x, TargetPos, lerpSmooth);
         pos.z = Mathf.Lerp(transform.position.z, TargetZoom, lerpSmoothZ);
-        transform.position = pos; 
+        transform.position = pos;
+        TargetZoom = Mathf.Clamp(TargetZoom, zoomRange.x, zoomRange.y);
+        TargetPos = Mathf.Clamp(TargetPos, xRange.x, xRange.y);
     }
+    
 }
