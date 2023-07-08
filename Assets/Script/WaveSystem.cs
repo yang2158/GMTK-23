@@ -35,7 +35,7 @@ public class WaveSystem : MonoBehaviour
 
             if(enemy.GetComponent<BasicEnemy>())
             {
-                enemy.GetComponent<BasicEnemy>().ep = enemy.GetComponent<BasicEnemy>().ep + Vector3.right * deathZ;
+                enemy.GetComponent<BasicEnemy>().ep =  Vector3.right * deathZ;
             }
             newEnemy.transform.position = enemyPos;
         }
