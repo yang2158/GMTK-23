@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 6512220481732533457}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -124,7 +124,7 @@ MonoBehaviour:
   ep: {x: 0, y: 0, z: 0}
   distanceToGo: 90
   damage: 5
-  speed: 5
+  speed: 200
   speedMulti: 1
   waveHeight: 0.5
   waveIntensity: 0.5
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathJump: 200
-  health: 100
+  health: 200
   deathAnimTime: 1
 --- !u!136 &5496071817345156508
 CapsuleCollider:

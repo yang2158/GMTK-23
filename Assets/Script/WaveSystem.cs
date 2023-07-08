@@ -5,7 +5,7 @@ using TMPro;
 
 public class WaveSystem : MonoBehaviour
 {
-    [SerializeField] private GameObject enemy;
+    [SerializeField] private GameObject[] enemies;
     [SerializeField] private Transform enemiesParent;
     [SerializeField] private TMP_Text waveText;
     public float deathZ = 0;
@@ -27,6 +27,7 @@ public class WaveSystem : MonoBehaviour
         waveText.text = "Wave " + waveNum;
         for(int i = 0; i < waveNum * slope; i++)
         {
+            GameObject enemy = enemies[Random.Range(0, enemies.Length)];
             GameObject newEnemy = Instantiate(enemy, enemiesParent);
             Vector3 enemyPos = new Vector3(startPosX + Random.Range(-rngRangeX, rngRangeX), 1.5f, Random.Range(minZ, maxZ));
            
@@ -43,6 +44,7 @@ public class WaveSystem : MonoBehaviour
     {
         if (enemiesParent.transform.childCount == 0)
         {
+            Debug.Log("WAVEE");
             StartWave();
         }
     }
