@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 579748854430191352}
   - component: {fileID: 8454765539186509718}
   - component: {fileID: 2346875741379829139}
+  - component: {fileID: -2947140938544919996}
+  - component: {fileID: 5839491755613136580}
+  - component: {fileID: 4438157656462364334}
   m_Layer: 0
   m_Name: Assasin
   m_TagString: Untagged
@@ -25,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1850533199419148797}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -30.742958, y: -3.1008842, z: 3.878498}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
@@ -107,3 +110,56 @@ MonoBehaviour:
   waveFrequency: 400
   trueSpeed: 0
   randomSpeedStat: 1
+--- !u!114 &-2947140938544919996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1850533199419148797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d0e6932d2df30c4a8a14277410b41a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathJump: 200
+  health: 100
+  deathAnimTime: 1
+--- !u!136 &5839491755613136580
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1850533199419148797}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.2
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4438157656462364334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1850533199419148797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d0e6932d2df30c4a8a14277410b41a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathJump: 200
+  health: 100
+  deathAnimTime: 0.3

@@ -7,28 +7,34 @@ public class Enemy : MonoBehaviour
 {
     public float deathJump = 200;
     public float health = 100;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    float timer = 0f;
+    bool dead = false;
+    [SerializeField] float deathAnimTime = 1f;
+
     public void shot(float dmg)
     {
         health -= dmg;
-        if (health <= 0) die();
+        if (health <= 0) Die();
     }
 
-    public void die()
+    public void Die()
     {
         transform.GetComponent<Collider>().enabled = false;
         Rigidbody rb = transform.AddComponent<Rigidbody>();
         rb.AddForceAtPosition(Vector3.up * deathJump, transform.position+new Vector3(Random.Range(-6, 7), 5, Random.Range(-1,1) ));
-
+        dead = true;
+    }
+    private void Update()
+    {
+        if(timer >= deathAnimTime)
+        {
+            Destroy(gameObject);
+        }
+        if(dead) timer += Time.deltaTime;
+    }
+    public bool IsDead()
+    {
+        return dead;
     }
 }

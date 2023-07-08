@@ -38,8 +38,12 @@ public class BasicEnemy : MonoBehaviour
         if(dir.magnitude < 0.4f)
         {
             //REACH CASTLE
-            gameManager.GetComponent<CastleHealth>().TakeDamage(damage);
-            GameObject.Destroy(gameObject);
+            if(this.GetComponent<Enemy>().IsDead() == false)
+            {
+                gameManager.GetComponent<CastleHealth>().TakeDamage(damage);
+                GameObject.Destroy(gameObject);
+            }
+            
         }
         dir.Normalize();
         interval = (interval + Time.deltaTime);

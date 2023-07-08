@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
     public int piercing=1;
+    [SerializeField] private int damage=100;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,8 +31,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (hitInfo.collider.transform.GetComponent<Enemy>() != null)
                 {
-
-                    hitInfo.collider.transform.GetComponent<Enemy>().shot(100);
+                    hitInfo.collider.transform.GetComponent<Enemy>().shot(damage);
                 }
             }
         }
