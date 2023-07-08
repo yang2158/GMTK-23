@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,20 +8,22 @@ public class WindowManager : MonoBehaviour
 {
 
     public GameObject gameOverWindow;
+    public GameObject UI;
 
+    public bool gameOver = false;
+    private void Update()
+    {
+        if (gameOver && Input.GetKeyDown(KeyCode.Space))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        }
+    }
     public void GameOverScreen()
     {
         gameOverWindow.SetActive(true);
-        gameOverWindow.transform.LeanMoveLocalY(0, 1f).setEaseOutQuart();
+        gameOver = true;
+        UI.SetActive(false);
     }
 
-    public void StartOverButton()
-    {
-        gameOverWindow.LeanDelayedCall(0.8f, StartOver);
-        gameOverWindow.LeanScale(new Vector3(0, 0, 0), 0.8f);
-    }
-    public void StartOver()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
 }
