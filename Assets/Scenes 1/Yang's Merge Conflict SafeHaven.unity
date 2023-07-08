@@ -165,6 +165,8 @@ GameObject:
   - component: {fileID: 47098098}
   - component: {fileID: 47098100}
   - component: {fileID: 47098099}
+  - component: {fileID: 47098101}
+  - component: {fileID: 47098102}
   m_Layer: 0
   m_Name: Assasin (2)
   m_TagString: Untagged
@@ -259,6 +261,43 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!136 &47098101
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 47098097}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.2
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &47098102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 47098097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d0e6932d2df30c4a8a14277410b41a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathJump: 200
+  health: 100
 --- !u!1 &86689697
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,6 +540,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &460462948 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1850533199419148797, guid: fa293b61f640c4907b759e9b0b674037,
+    type: 3}
+  m_PrefabInstance: {fileID: 2260399618643738258}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &490850244
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,6 +675,8 @@ GameObject:
   - component: {fileID: 536273949}
   - component: {fileID: 536273951}
   - component: {fileID: 536273950}
+  - component: {fileID: 536273952}
+  - component: {fileID: 536273953}
   m_Layer: 0
   m_Name: Assasin (6)
   m_TagString: Untagged
@@ -724,6 +771,43 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!136 &536273952
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 536273948}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.2
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &536273953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 536273948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d0e6932d2df30c4a8a14277410b41a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathJump: 200
+  health: 100
 --- !u!1 &634043018
 GameObject:
   m_ObjectHideFlags: 0
@@ -976,6 +1060,8 @@ GameObject:
   - component: {fileID: 716206016}
   - component: {fileID: 716206018}
   - component: {fileID: 716206017}
+  - component: {fileID: 716206019}
+  - component: {fileID: 716206020}
   m_Layer: 0
   m_Name: Assasin (3)
   m_TagString: Untagged
@@ -1070,6 +1156,43 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!136 &716206019
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716206015}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.2
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &716206020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716206015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d0e6932d2df30c4a8a14277410b41a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathJump: 200
+  health: 100
 --- !u!1 &815636498
 GameObject:
   m_ObjectHideFlags: 0
@@ -1219,6 +1342,8 @@ GameObject:
   - component: {fileID: 834532203}
   - component: {fileID: 834532205}
   - component: {fileID: 834532204}
+  - component: {fileID: 834532206}
+  - component: {fileID: 834532207}
   m_Layer: 0
   m_Name: Assasin (5)
   m_TagString: Untagged
@@ -1313,6 +1438,43 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!136 &834532206
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834532202}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.2
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &834532207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834532202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d0e6932d2df30c4a8a14277410b41a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathJump: 200
+  health: 100
 --- !u!1 &849238142
 GameObject:
   m_ObjectHideFlags: 0
@@ -1324,6 +1486,8 @@ GameObject:
   - component: {fileID: 849238143}
   - component: {fileID: 849238145}
   - component: {fileID: 849238144}
+  - component: {fileID: 849238146}
+  - component: {fileID: 849238147}
   m_Layer: 0
   m_Name: Assasin (4)
   m_TagString: Untagged
@@ -1418,6 +1582,43 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!136 &849238146
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849238142}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.2
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &849238147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849238142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d0e6932d2df30c4a8a14277410b41a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathJump: 200
+  health: 100
 --- !u!1 &904497371
 GameObject:
   m_ObjectHideFlags: 0
@@ -1792,6 +1993,43 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2260399618643738258}
   m_PrefabAsset: {fileID: 0}
+--- !u!136 &1061031672
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 460462948}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.2
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1061031673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 460462948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d0e6932d2df30c4a8a14277410b41a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathJump: 200
+  health: 100
 --- !u!1 &1214435763
 GameObject:
   m_ObjectHideFlags: 0
@@ -1908,6 +2146,8 @@ GameObject:
   - component: {fileID: 1237991302}
   - component: {fileID: 1237991304}
   - component: {fileID: 1237991303}
+  - component: {fileID: 1237991305}
+  - component: {fileID: 1237991306}
   m_Layer: 0
   m_Name: Assasin (7)
   m_TagString: Untagged
@@ -2002,6 +2242,43 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!136 &1237991305
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237991301}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.2
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1237991306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237991301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d0e6932d2df30c4a8a14277410b41a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathJump: 200
+  health: 100
 --- !u!1 &1238063498
 GameObject:
   m_ObjectHideFlags: 0
@@ -2164,8 +2441,8 @@ MonoBehaviour:
   TargetZoom: 0
   lerpSmooth: 0.1
   lerpSmoothZ: 0.02
-  zoomRange: {x: 0, y: 0}
-  xRange: {x: 0, y: 0}
+  zoomRange: {x: -60, y: -5}
+  xRange: {x: -50, y: 10}
 --- !u!81 &1239471358
 AudioListener:
   m_ObjectHideFlags: 0
@@ -2233,7 +2510,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1239471355}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.405186, y: 2, z: -5}
+  m_LocalPosition: {x: 9.405186, y: 2, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2336,6 +2613,8 @@ GameObject:
   - component: {fileID: 1555443042}
   - component: {fileID: 1555443044}
   - component: {fileID: 1555443043}
+  - component: {fileID: 1555443045}
+  - component: {fileID: 1555443046}
   m_Layer: 0
   m_Name: Assasin (1)
   m_TagString: Untagged
@@ -2351,7 +2630,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1555443041}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -30.742958, y: -3.1008842, z: 3.878498}
+  m_LocalPosition: {x: -30.742958, y: -0.758, z: 3.878498}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2430,6 +2709,43 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!136 &1555443045
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555443041}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.2
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1555443046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555443041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d0e6932d2df30c4a8a14277410b41a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathJump: 200
+  health: 100
 --- !u!1 &1695232908
 GameObject:
   m_ObjectHideFlags: 0
@@ -2575,6 +2891,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1717977223}
   - component: {fileID: 1717977224}
+  - component: {fileID: 1717977225}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2613,6 +2930,19 @@ MonoBehaviour:
   hover: {fileID: 0}
   enemies: {fileID: 86689697}
   bullets: {fileID: 0}
+--- !u!114 &1717977225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717977222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2f10959fcd30fe47a1ff83464ab9c29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piercing: 1
 --- !u!1 &1755415792
 GameObject:
   m_ObjectHideFlags: 0
@@ -2962,7 +3292,15 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1850533199419148797, guid: fa293b61f640c4907b759e9b0b674037,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1061031672}
+    - targetCorrespondingSourceObject: {fileID: 1850533199419148797, guid: fa293b61f640c4907b759e9b0b674037,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1061031673}
   m_SourcePrefab: {fileID: 100100000, guid: fa293b61f640c4907b759e9b0b674037, type: 3}
 --- !u!1001 &2658478082918737901
 PrefabInstance:
