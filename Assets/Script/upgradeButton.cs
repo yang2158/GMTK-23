@@ -13,11 +13,7 @@ public class upgradeButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     int timesBought = 0;
     public int cost;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
 
     // Update is called once per frame
     void LateUpdate()

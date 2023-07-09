@@ -13,6 +13,9 @@ public class build : MonoBehaviour
     int clicks = 0;
     int price=int.MaxValue;
     Object itm;
+
+    [SerializeField] GameObject rClickText;
+
     public void sel(Object item, int prices )
     {
         if (hover)
@@ -31,9 +34,17 @@ public class build : MonoBehaviour
         itm = item;
     }
 
-void Start()
+    void Start()
     {
         Instance = this;
+        rClickText.SetActive(false);
+    }
+
+    void StopSelection()
+    {
+        rClickText.SetActive(false);
+        GameObject.Destroy(hover);
+        PlayerController.instance.bankDisplay.color = Color.white;
     }
 
     // Update is called once per frame
@@ -51,15 +62,15 @@ void Start()
         Time.timeScale = 1f;
         if (hover)
         {
+            rClickText.SetActive(true);
             Color ogColor = hover.GetComponent<SpriteRenderer>().color;
             Time.timeScale = 0.3f;
             PlayerController.instance.bankDisplay.color = Color.white;
             hover.transform.position = getMousePos();
             if (Input.GetMouseButtonDown(1))
             {
-                GameObject.Destroy(hover);
-                PlayerController.instance.bankDisplay.color = Color.white;
 
+                StopSelection();
             }
             if (!hover.GetComponent<EnemyDetect>().intersectsOthers())
             {
@@ -83,9 +94,7 @@ void Start()
                         hover.GetComponent<EnemyDetect>().canMove = false;
 
 
-                        //stops the selection
-                        GameObject.Destroy(hover);
-                        PlayerController.instance.bankDisplay.color = Color.white;
+                        StopSelection();
 
                     }
                 }

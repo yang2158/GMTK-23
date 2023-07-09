@@ -21,9 +21,11 @@ public class WindowManager : MonoBehaviour
         if ( Input.GetKeyDown(KeyCode.Space))
         {
 
-            Time.timeScale = 1f;
+            //Time.timeScale = 1f;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-
+            AudioListener.pause = false;
+            AudioListener.volume = 1;
+            gameOver = false;
         }
     }
 
@@ -34,16 +36,24 @@ public class WindowManager : MonoBehaviour
 
     public void GameOverScreen()
     {
-        System.TimeSpan theTime = System.DateTime.Now.Subtract(PlayerController.instance.startTime);
-        stats.text = "Money Earned : " + PlayerController.instance.earned + "<br>" +
-            "TimeSpent : " + theTime.Minutes + "M" + theTime.Seconds + "S<br>" +
-            "Killed : " + PlayerController.instance.emyKilled + "<br>";
+        if(!gameOver)
+        {
+            System.TimeSpan theTime = System.DateTime.Now.Subtract(PlayerController.instance.startTime);
+            stats.text = "Money Earned : " + PlayerController.instance.earned + "<br>" +
+                "TimeSpent : " + theTime.Minutes + "M" + theTime.Seconds + "S<br>" +
+                "Killed : " + PlayerController.instance.emyKilled + "<br>";
             ;
-        wave.text = "You survived "+WaveSystem.getWave() + " waves!";
-        Time.timeScale = 0;
-        gameOverWindow.SetActive(true);
-        gameOver = true;
-        UI.SetActive(false);
+            wave.text = "You survived " + WaveSystem.getWave() + " waves!";
+            Time.timeScale = 0;
+
+            AudioListener.pause = true;
+            AudioListener.volume = 0;
+
+            gameOverWindow.SetActive(true);
+            gameOver = true;
+            UI.SetActive(false);
+        }
+        
     }
 
 }
