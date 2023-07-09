@@ -13,6 +13,12 @@ public class CastleHealth : MonoBehaviour
     [SerializeField] Image hurtIndicator;
     [SerializeField] float alpha;
 
+    [SerializeField] AudioSource audioSrc;
+
+    private void Start()
+    {
+        audioSrc = GetComponent<AudioSource>();
+    }
 
     public void FixedUpdate()
     {
@@ -24,6 +30,9 @@ public class CastleHealth : MonoBehaviour
     {
         health -= damage;
         healthBar.fillAmount = Mathf.Clamp(health / maxHealth, 0, 1);
+
+        audioSrc.Play();
+
         Color hurtColor = hurtIndicator.color;
         Color hurtFadeColor = hurtColor;
         hurtFadeColor.a = alpha;

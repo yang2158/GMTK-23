@@ -51,7 +51,7 @@ void Start()
         Time.timeScale = 1f;
         if (hover)
         {
-
+            Color ogColor = hover.GetComponent<SpriteRenderer>().color;
             Time.timeScale = 0.3f;
             PlayerController.instance.bankDisplay.color = Color.white;
             hover.transform.position = getMousePos();
@@ -65,22 +65,27 @@ void Start()
             {
                 if (PlayerController.instance.checkBank(price))
                 {
-                    hover.GetComponent<SpriteRenderer>().color = setAlpha(hover.GetComponent<SpriteRenderer>().color,170);
+                    hover.GetComponent<SpriteRenderer>().color = setAlpha(ogColor,200);
                     if (Input.GetMouseButtonUp(0) && clicks >2)
                     {
                         PlayerController.instance.promptBank(price);
                         hover.GetComponent<EnemyDetect>().canShoot = true;
                         hover.GetComponent<EnemyDetect>().canMove = false;
-                        hover.GetComponent<SpriteRenderer>().color = setAlpha(hover.GetComponent<SpriteRenderer>().color, 255);
+                        hover.GetComponent<SpriteRenderer>().color = setAlpha(ogColor, 255);
                         hover = null;
                         //Prompt to place more
                         hover = (GameObject)GameObject.Instantiate(itm, getMousePos(), Quaternion.identity, ally);
 
                         hover.GetComponent<EnemyDetect>().enemies = enemies;
                         hover.GetComponent<EnemyDetect>().bulletLocal = bullets;
-                        hover.GetComponent<SpriteRenderer>().color = setAlpha(hover.GetComponent<SpriteRenderer>().color, 170);
+                        hover.GetComponent<SpriteRenderer>().color = setAlpha(ogColor, 200);
                         hover.GetComponent<EnemyDetect>().canShoot = false;
                         hover.GetComponent<EnemyDetect>().canMove = false;
+
+
+                        //stops the selection
+                        GameObject.Destroy(hover);
+                        PlayerController.instance.bankDisplay.color = Color.white;
 
                     }
                 }
@@ -95,7 +100,9 @@ void Start()
                 PlayerController.instance.bankDisplay.color = Color.white;
                 if (!PlayerController.instance.checkBank(price))
                     PlayerController.instance.bankDisplay.color = Color.red;
-                hover.GetComponent<SpriteRenderer>().color = setAlpha(hover.GetComponent<SpriteRenderer>().color, 100);
+                //hover.GetComponent<SpriteRenderer>().color = setAlpha(hover.GetComponent<SpriteRenderer>().color, 100);
+                hover.GetComponent<SpriteRenderer>().color = setAlpha(ogColor, 50);
+
             }
         }
         else
