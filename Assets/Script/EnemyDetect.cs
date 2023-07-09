@@ -57,7 +57,7 @@ public class EnemyDetect : MonoBehaviour
                 }
 
             }
-            if (dist - range < 1&& lastCheck%(1f/fireRate)<Time.deltaTime/2 && canShoot) {
+            if (dist - range < 1&& lastCheck%(1f/(fireRate* (1f + PlayerController.instance.auto )))<Time.deltaTime/2 && canShoot) {
 
                 //Shoot 
 
@@ -102,7 +102,7 @@ public class EnemyDetect : MonoBehaviour
                 if (child != gameObject.transform) { 
                     Vector3 dis = (child.position - transform.position);
                     float dist = Mathf.Sqrt(Mathf.Pow(dis.x, 2) + Mathf.Pow(dis.y, 2));
-                    if (dist < sightRange && child.gameObject.GetComponent<SpriteRenderer>().color == Color.white)
+                    if (dist < sightRange )
                     {
                         if (objDist > dist )
                         {

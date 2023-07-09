@@ -18,7 +18,7 @@ public class WindowManager : MonoBehaviour
     public bool gameOver = false;
     private void Update()
     {
-        if (gameOver && Input.GetKeyDown(KeyCode.Space))
+        if ( Input.GetKeyDown(KeyCode.Space))
         {
 
             Time.timeScale = 1f;
@@ -39,6 +39,7 @@ public class WindowManager : MonoBehaviour
             "TimeSpent : " + theTime.Minutes + "M" + theTime.Seconds + "S<br>" +
             "Killed : " + PlayerController.instance.emyKilled + "<br>";
             ;
+        wave.text = "You survived "+WaveSystem.getWave() + " waves!";
         Time.timeScale = 0;
         gameOverWindow.SetActive(true);
         gameOver = true;

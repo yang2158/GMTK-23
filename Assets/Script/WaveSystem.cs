@@ -5,7 +5,9 @@ using TMPro;
 
 public class WaveSystem : MonoBehaviour
 {
-    [SerializeField] private GameObject[] enemies;
+    [SerializeField] private GameObject[] t1enemies;
+    [SerializeField] private GameObject[] t2enemies;
+    [SerializeField] private GameObject[] t3enemies;
     [SerializeField] private Transform enemiesParent;
     [SerializeField] private TMP_Text waveText;
     public float deathZ = 0;
@@ -18,14 +20,26 @@ public class WaveSystem : MonoBehaviour
     //[SerializeField] private int enemiesAlive;
     [SerializeField] private int slope;
 
-
+    public static WaveSystem instance;
     [SerializeField] private int waveNum = 0;
 
     void StartWave()
     {
         waveNum++;
         waveText.text = "Wave " + waveNum;
-        for(int i = 0; i < waveNum * slope; i++)
+        int waveSize = waveNum;
+        GameObject[] enemies= t1enemies;
+        if (waveNum >=10)
+        {
+            waveSize -= 10;
+            enemies = concat(enemies,t2enemies);
+        }
+        if (waveNum >=20)
+        {
+            waveSize -= 10;
+            enemies = concat(enemies, t3enemies);
+        }
+        for (int i = 0; i < waveSize * slope; i++)
         {
 
             GameObject enemy = enemies[Random.Range(0, enemies.Length)];
@@ -40,6 +54,18 @@ public class WaveSystem : MonoBehaviour
             newEnemy.transform.position = enemyPos;
         }
     }
+    public int getWaveNum()
+    {
+        return waveNum;
+    }
+    public static int getWave()
+    {
+        return instance.getWaveNum();
+    }
+    public void Start()
+    {
+        instance = this;
+    }
 
     private void Update()
     {
@@ -47,5 +73,12 @@ public class WaveSystem : MonoBehaviour
         {
             StartWave();
         }
+    }
+    public GameObject[] concat(GameObject[] x , GameObject[] y)
+    {
+        var z = new GameObject[x.Length + y.Length];
+        x.CopyTo(z, 0);
+        y.CopyTo(z, x.Length);
+        return z;
     }
 }
