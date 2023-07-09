@@ -23,8 +23,12 @@ public class bullet : MonoBehaviour
         create += Time.deltaTime;
         if (target)
         {
+            if (transform.position.y < 0)
+            {
+                GameObject.Destroy(gameObject);
+            }
             start = true;
-            transform.position += (target.transform.position - transform.position) * bulletSpeed  *Time.deltaTime;
+            transform.position += (target.transform.position - transform.position).normalized * bulletSpeed  *Time.deltaTime;
             face();
             dis = getDist(transform.position, target.transform.position);
             if (getDist(transform.position, target.transform.position ) < 0.2)

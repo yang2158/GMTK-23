@@ -31,6 +31,7 @@ public class upgradeButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void cliked()
     {
+        if (PlayerController.instance.promptBank(cost)) ;
         PlayerController.instance.upgradeID(upgradeID);
         Debug.Log("Upgraded ID:" + upgradeID);
 

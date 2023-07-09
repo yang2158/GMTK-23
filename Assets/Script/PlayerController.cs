@@ -128,6 +128,13 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+
+    public bool promptBank(float price )
+    {
+        if (price > money) return false;
+        money -= price;
+        return true;
+    }
     public void setBGIDText(int id)
     {
         if (id < 0 || id > 3) return;
@@ -139,7 +146,7 @@ public class PlayerController : MonoBehaviour
                 value = piercing;
                 break;
             case 2:
-                value = damage;
+                value = dmgMultiplier;
                 break;
             case 3:
                 value = dropMulti;
