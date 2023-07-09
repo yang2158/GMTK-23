@@ -124,11 +124,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ep: {x: 0, y: 0, z: 0}
   damage: 5
-  speed: 200
+  speed: 300
   speedMulti: 1
   waveHeight: 0.5
   waveIntensity: 0.5
-  waveFrequency: 30
+  waveFrequency: 20
   trueSpeed: 0
   randomSpeedStat: 1
 --- !u!114 &1675572735382677792
@@ -144,8 +144,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathJump: 200
-  health: 500
-  worth: 10
+  health: 1200
+  worth: 15
   deathAnimTime: 2
   hurt: {fileID: 0}
   die: {fileID: 0}

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using static UnityEngine.Rendering.DebugUI;
 using UnityEditor.PackageManager;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
@@ -26,17 +27,26 @@ public class PlayerController : MonoBehaviour
     public float timer = float.PositiveInfinity;
 
 
+
+    //Game Stats
+    public int emyKilled = 0;
+    public float earned = 0; 
+    public System.DateTime startTime = System.DateTime.Now;
+
     //Constant Values
     [SerializeField] private int damage=100;
     [SerializeField] Image bulletBar;
     public TextMeshProUGUI infoPanel;
+    public TextMeshProUGUI infoCostPanel;
     [SerializeField] private TextMeshProUGUI[] statBGDisplay= new TextMeshProUGUI[4];
-    [SerializeField] private TextMeshProUGUI bankDisplay ;
+    [SerializeField] public TextMeshProUGUI bankDisplay ;
 
     // Start is called before the first frame update
     void Start()
     {
         instance = this;
+        startTime = DateTime.Now ;
+
     }
 
     // Update is called once per frame
@@ -45,7 +55,11 @@ public class PlayerController : MonoBehaviour
         displayedMoney = Mathf.Lerp(money, displayedMoney, 0.5f);
         if (bankDisplay)
         {
-            bankDisplay.text = "Coins: " + Mathf.RoundToInt(displayedMoney);
+            
+            if (displayedMoney < int.MaxValue)
+            {
+                bankDisplay.text = "Coins: " + Mathf.RoundToInt(displayedMoney);
+            }
         }
         timer -= Time.deltaTime;
         if (timer <= 0 && auto > 0)
@@ -53,12 +67,13 @@ public class PlayerController : MonoBehaviour
             timer = 1/auto;
             shoot();
         }
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) &&Time.timeScale==1)
             shoot();
         float amt = timer * auto;
         if(!float.IsNaN(amt))
             bulletBar.fillAmount =amt;
         infoPanel.text = "Hover Over Buttons for More Info";
+        infoCostPanel.text = "Cost: ???";
         setBGIDText(1);
         setBGIDText(2);
         setBGIDText(3);
@@ -66,6 +81,7 @@ public class PlayerController : MonoBehaviour
     }
     public void shoot()
     {
+
         int canHit = PlayerController.floatToInt(piercing);
             RaycastHit[] hitInfo = Physics.RaycastAll(Camera.main.ScreenPointToRay(Input.mousePosition));
             if (hitInfo!=null)
@@ -85,14 +101,16 @@ public class PlayerController : MonoBehaviour
 
     public int gainDrop(float n)
     {
+        earned += n * dropMulti;
         money += n * dropMulti;
+        emyKilled++;
         return Mathf.FloorToInt(money);
     }
     public static int floatToInt(float n)
     {
         //Coverts a float to a problicmatically correct int
         // i prob spelled problicmatically wrong but idc
-        return Mathf.FloorToInt(n) +  ((n - Mathf.Floor(n) > Random.Range(0,1)  )? 1:0 );
+        return Mathf.FloorToInt(n) +  ((n - Mathf.Floor(n) > UnityEngine.Random.Range(0,1)  )? 1:0 );
     }
     public void upgradeID(int id)
     {
@@ -138,6 +156,11 @@ public class PlayerController : MonoBehaviour
         money -= price;
         return true;
     }
+    public bool checkBank(float price)
+    {
+        if (price > money) return false;
+        return true;
+    }
     public void setBGIDText(int id)
     {
         if (id < 1 || id > 4) return;
@@ -160,5 +183,10 @@ public class PlayerController : MonoBehaviour
     public void setInfoText(string text)
     {
         infoPanel.text = text;
+    }
+    public void setInfoText(string text, float cost)
+    {
+        setInfoText(text);
+        infoCostPanel.text = "Cost: " + Mathf.RoundToInt(cost+0.5f);
     }
 }

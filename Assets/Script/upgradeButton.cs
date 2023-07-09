@@ -10,6 +10,8 @@ public class upgradeButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     private bool hover = false;
     public int upgradeID = 000;
     public string infoText;
+
+    int timesBought = 0;
     public int cost;
     // Start is called before the first frame update
     void Start()
@@ -24,16 +26,18 @@ public class upgradeButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         if (hover)
         {
 
-            PlayerController.instance.setInfoText(infoText);
+            PlayerController.instance.setInfoText(infoText,cost);
         }
 
     }
 
     public void cliked()
     {
-        if (PlayerController.instance.promptBank(cost)) ;
-        PlayerController.instance.upgradeID(upgradeID);
-        Debug.Log("Upgraded ID:" + upgradeID);
+        if (PlayerController.instance.promptBank(cost))
+        {
+            PlayerController.instance.upgradeID(upgradeID);
+            cost += 8;
+        }
 
     }
     void OnPointerEnter(PointerEventData eventData)

@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathJump: 200
-  health: 200
+  health: 300
   worth: 10
   deathAnimTime: 2
   hurt: {fileID: 8300000, guid: d0a5f73aef07f4f7c8c28f5548dd4774, type: 3}

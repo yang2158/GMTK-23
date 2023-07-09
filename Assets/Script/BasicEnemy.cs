@@ -49,7 +49,7 @@ public class BasicEnemy : MonoBehaviour
         float wave = waveIntensity * Mathf.Cos(waveFrequency/((Mathf.PI * 2)  ) * interval) + waveIntensity + waveHeight;
 
         trueSpeed = speed * speedMulti * wave;
-        transform.position += dir * trueSpeed * Time.deltaTime * Random.Range(0.8f, 1.2f) / 100f;
-
+        transform.position += dir * trueSpeed * Time.deltaTime  / 100f;
+        speedMulti = 1;
     }
 }

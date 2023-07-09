@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
 
     public void shot(float dmg)
     {
-        health -= dmg;
+        health -= dmg* PlayerController.instance.dmgMultiplier*2;
         if (health <= 0)
         {
             Die();
@@ -79,7 +79,10 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if(dead) timer += Time.deltaTime;
+        if (dead) { timer += Time.deltaTime;
+            transform.SetParent(PlayerController.instance.transform);
+        
+        }
     }
     public bool IsDead()
     {
