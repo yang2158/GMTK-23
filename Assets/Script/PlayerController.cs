@@ -55,7 +55,9 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetMouseButtonUp(0))
             shoot();
-        bulletBar.fillAmount = timer * auto;
+        float amt = timer * auto;
+        if(!float.IsNaN(amt))
+            bulletBar.fillAmount =amt;
         infoPanel.text = "Hover Over Buttons for More Info";
         setBGIDText(1);
         setBGIDText(2);
@@ -123,6 +125,7 @@ public class PlayerController : MonoBehaviour
                 {
                     auto += 0.1f;
                 }
+                if(timer !=0)
                 timer = bulletBar.fillAmount / auto;
                 return;
         }
@@ -137,8 +140,8 @@ public class PlayerController : MonoBehaviour
     }
     public void setBGIDText(int id)
     {
-        if (id < 0 || id > 3) return;
-        float value = 0;
+        if (id < 1 || id > 4) return;
+        float value = auto;
 
         switch (id)
         {
@@ -150,9 +153,6 @@ public class PlayerController : MonoBehaviour
                 break;
             case 3:
                 value = dropMulti;
-                break;
-            case 4:
-                value = auto;
                 break;
         }
         statBGDisplay[id - 1].text = "x"+ string.Format("{0:0.0}", value);

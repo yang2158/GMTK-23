@@ -56,7 +56,8 @@ public class Enemy : MonoBehaviour
 
         PlayerController.instance.gainDrop(worth);
         transform.GetComponent<SpriteRenderer>().color *=0.5f;
-        transform.GetComponent<SpriteRenderer>().color += Color.red ;
+        transform.GetComponent<SpriteRenderer>().color += Color.red;
+        transform.SetParent(PlayerController.instance.transform);
         dead = true;
     }
     public void endreach()
@@ -71,6 +72,7 @@ public class Enemy : MonoBehaviour
         }
 
         PlayerController.instance.gainDrop(worth);
+        transform.SetParent( PlayerController.instance.transform);
         dead = true;
     }
     private void Update()
