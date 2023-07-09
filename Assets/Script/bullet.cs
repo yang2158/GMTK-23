@@ -10,7 +10,8 @@ public class bullet : MonoBehaviour
     bool start = false;
     float create = 0;
     public float dis = 0;
-    public bool heals = false;
+    public int type;
+    public float slothRave = 0.5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +19,7 @@ public class bullet : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         create += Time.deltaTime;
         if (target)
@@ -30,16 +31,33 @@ public class bullet : MonoBehaviour
             start = true;
             transform.position += (target.transform.position - transform.position).normalized * bulletSpeed  *Time.deltaTime;
             face();
-            dis = getDist(transform.position, target.transform.position);
             if (getDist(transform.position, target.transform.position ) < 0.2)
             {
                 if (target.GetComponent<Enemy>())
                 {
-                    if( !heals)
+                    if(type == 1 )
                         target.GetComponent<Enemy>().shot(100);
-                    if(heals)
-                        target.GetComponent<Enemy>().shot(100);
-                    GameObject.Destroy(gameObject);
+                    if (type == 2)
+                        target.GetComponent<Enemy>().worth*=1.2f;
+                    if (type == 3)
+                    {
+                        target.GetComponent<Enemy>().worth -= 3;
+                        target.GetComponent<Enemy>().shot(300);
+                    }
+                    if (type == 4)
+                    {
+                        slothRave -= Time.deltaTime;
+                        if (target.GetComponent<BasicEnemy>())
+                        {
+                            target.GetComponent<BasicEnemy>().speedMulti = 0.3f;
+                        }
+                        if (slothRave < 0)
+                        {
+
+                            GameObject.Destroy(gameObject);
+                        }
+                    }else
+                        GameObject.Destroy(gameObject);
                 }
 
             }

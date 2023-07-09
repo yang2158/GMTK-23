@@ -57,7 +57,10 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if(dead) timer += Time.deltaTime;
+        if (dead) { timer += Time.deltaTime;
+            transform.SetParent(PlayerController.instance.transform);
+        
+        }
     }
     public bool IsDead()
     {
