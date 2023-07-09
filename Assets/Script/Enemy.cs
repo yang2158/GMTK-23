@@ -13,15 +13,39 @@ public class Enemy : MonoBehaviour
     bool dead = false;
     [SerializeField] float deathAnimTime = 1f;
 
+    AudioSource audioSrc;
+    [SerializeField] AudioClip hurt;
+    [SerializeField] AudioClip die;
+
+
+    private void Start()
+    {
+        audioSrc = GetComponent<AudioSource>();
+    }
+
     public void shot(float dmg)
     {
         health -= dmg;
-        if (health <= 0) Die();
+        if (health <= 0)
+        {
+            Die();
+        }
+        else
+        {
+
+            audioSrc.clip = hurt;
+            audioSrc.Play();
+        }
     }
 
     public void Die()
     {
+        audioSrc.clip = hurt;
+        audioSrc.Play();
         if (dead) return;
+
+        
+
         transform.GetComponent<Collider>().enabled = false;
         Rigidbody rb = transform.AddComponent<Rigidbody>();
         rb.AddForceAtPosition(Vector3.up * deathJump, transform.position+new Vector3(Random.Range(-6, 7), 5, Random.Range(-1,1) ));
