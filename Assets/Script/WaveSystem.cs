@@ -43,9 +43,8 @@ public class WaveSystem : MonoBehaviour
 
     private void Update()
     {
-        if (enemiesParent.transform.childCount == 0)
+        if (enemiesParent.transform.childCount <3)
         {
-            Debug.Log("WAVEE");
             StartWave();
         }
     }

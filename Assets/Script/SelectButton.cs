@@ -4,54 +4,46 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-public class SelectButton : MonoBehaviour, ISelectHandler
+public class SelectButton : MonoBehaviour, ISelectHandler, IPointerEnterHandler, IPointerExitHandler
 {
     // Start is called before the first frame update
 
+    private bool hover = false;
+    public string infoText;
     public Object prefabObj;
     public int price = 1;
     void Start()
     {
-        
-    }
 
+    }
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        Camera main = Camera.main;
-        RaycastHit hitInfo = new RaycastHit();
-        Ray ray = main.ScreenPointToRay(Input.mousePosition);
-        // OnMouseOver
-        if (Physics.Raycast(ray, out hitInfo))
-        {
-            if(hitInfo.collider.gameObject == gameObject)
-            {
-                transform.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>().enabled = true;
 
-            }
-            else
-            {
-                transform.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>().enabled = false;
-            }
+        if (hover)
+        {
+
+            PlayerController.instance.setInfoText(infoText,price);
         }
+
     }
+
     public void OnSelect(BaseEventData eventData)
     {
         build.Instance.sel(prefabObj , price);
-       
     }
-     void OnMouseEnter()
+    public void clk()
     {
-            transform.GetChild(0).GetComponent<Text>().enabled = true;
-        
+        build.Instance.sel(prefabObj, price);
     }
-      void OnMouseExit()
+
+    void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
     {
-            transform.GetChild(0).GetComponent<Text>().enabled = false;
-        
+        hover = true;
     }
-    private void OnMouseOver()
+
+    void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
     {
-        transform.GetChild(0).GetComponent<Text>().enabled = false;
+        hover = false;
     }
 }

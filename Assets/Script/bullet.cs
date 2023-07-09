@@ -38,10 +38,10 @@ public class bullet : MonoBehaviour
                     if(type == 1 )
                         target.GetComponent<Enemy>().shot(100);
                     if (type == 2)
-                        target.GetComponent<Enemy>().worth*=1.2f;
+                        target.GetComponent<Enemy>().worth+=2f;
                     if (type == 3)
                     {
-                        target.GetComponent<Enemy>().worth -= 3;
+                        target.GetComponent<Enemy>().worth -= 20;
                         target.GetComponent<Enemy>().shot(300);
                     }
                     if (type == 4)

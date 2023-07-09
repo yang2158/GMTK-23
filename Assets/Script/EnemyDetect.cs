@@ -135,16 +135,16 @@ public class EnemyDetect : MonoBehaviour
     public bool intersectsOthers()
     {
         float objDist = float.MaxValue;
-        Transform clos = null;
         foreach (Transform child in transform.parent)
         {
             if (child != transform)
             {
                 Vector3 dis = (child.position - transform.position);
-                float dist = Mathf.Sqrt(Mathf.Pow(dis.x, 2) + Mathf.Pow(dis.y, 2));
-                if (dist < objDist|| !clos)
+                dis -= dis.z * Vector3.forward;
+                float dist = dis.magnitude;
+                if (dist < objDist)
                 {
-                    if( dist -transform.lossyScale.x/2 - child.lossyScale.x/2 - Mathf.Min(transform.lossyScale.x / 2 , child.lossyScale.x / 2) <= 0)
+                    if( dist -transform.lossyScale.x/2 - child.lossyScale.x/2  <= 0)
                     {
                         return true;
                     }

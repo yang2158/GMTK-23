@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
 
     public void shot(float dmg)
     {
-        health -= dmg;
+        health -= dmg* PlayerController.instance.dmgMultiplier;
         if (health <= 0)
         {
             Die();
