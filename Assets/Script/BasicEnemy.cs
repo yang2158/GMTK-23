@@ -30,12 +30,9 @@ public class BasicEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
         ep.y = transform.position.y;
         Vector3 dir = ep - transform.position;
         dir -= Vector3.forward*dir.z;
-
         dir -= Vector3.up * dir.y;
         if (dir.magnitude < 0.4f)
         {

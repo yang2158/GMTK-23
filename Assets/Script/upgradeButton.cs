@@ -9,7 +9,8 @@ public class upgradeButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 {
     private bool hover = false;
     public int upgradeID = 000;
-    public string infoText ;
+    public string infoText;
+    public int cost;
     // Start is called before the first frame update
     void Start()
     {
