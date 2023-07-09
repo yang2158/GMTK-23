@@ -9,6 +9,11 @@ public class CastleHealth : MonoBehaviour
     [SerializeField] float health = 100;
     [SerializeField] Image healthBar;
     [SerializeField] Image healthBarBG;
+
+    [SerializeField] Image hurtIndicator;
+    [SerializeField] float alpha;
+
+
     public void FixedUpdate()
     {
 
@@ -17,15 +22,29 @@ public class CastleHealth : MonoBehaviour
     }
     public void TakeDamage(float damage)
     {
-        Debug.Log(health);
         health -= damage;
         healthBar.fillAmount = Mathf.Clamp(health / maxHealth, 0, 1);
+        Color hurtColor = hurtIndicator.color;
+        Color hurtFadeColor = hurtColor;
+        hurtFadeColor.a = alpha;
+        LeanTween.value(gameObject, updateValue, hurtColor, hurtFadeColor, 1f);
+        LeanTween.delayedCall(0.1f, HurtFadeOut);
 
         if (health <= 0)
         {
             GameObject.FindGameObjectWithTag("GameController").GetComponent<WindowManager>().GameOverScreen();
         }
-    }
 
+    }
+    void updateValue(Color val) {
+        hurtIndicator.color = val;
+    }
+    void HurtFadeOut()
+    {
+        Color hurtColor = hurtIndicator.color;
+        Color hurtFadeColor = hurtColor;
+        hurtFadeColor.a = 0;
+        LeanTween.value(gameObject, updateValue, hurtColor, hurtFadeColor, 1f);
+    }
 
 }
