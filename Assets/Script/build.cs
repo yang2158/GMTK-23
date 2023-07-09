@@ -30,7 +30,8 @@ public class build : MonoBehaviour
         price = prices;
         itm = item;
     }
-    void Start()
+
+void Start()
     {
         Instance = this;
     }
@@ -46,8 +47,12 @@ public class build : MonoBehaviour
         {
             clicks++;
         }
+
+        Time.timeScale = 1f;
         if (hover)
         {
+
+            Time.timeScale = 0.3f;
             PlayerController.instance.bankDisplay.color = Color.white;
             hover.transform.position = getMousePos();
             if (Input.GetMouseButtonDown(1))

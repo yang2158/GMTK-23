@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
             timer = 1/auto;
             shoot();
         }
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) &&Time.timeScale==1)
             shoot();
         float amt = timer * auto;
         if(!float.IsNaN(amt))
@@ -81,6 +81,7 @@ public class PlayerController : MonoBehaviour
     }
     public void shoot()
     {
+
         int canHit = PlayerController.floatToInt(piercing);
             RaycastHit[] hitInfo = Physics.RaycastAll(Camera.main.ScreenPointToRay(Input.mousePosition));
             if (hitInfo!=null)
