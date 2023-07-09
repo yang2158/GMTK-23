@@ -44,8 +44,6 @@ public class Enemy : MonoBehaviour
         audioSrc.Play();
         if (dead) return;
 
-        
-
         transform.GetComponent<Collider>().enabled = false;
         Rigidbody rb = transform.AddComponent<Rigidbody>();
         rb.AddForceAtPosition(Vector3.up * deathJump, transform.position+new Vector3(Random.Range(-6, 7), 5, Random.Range(-1,1) ));
